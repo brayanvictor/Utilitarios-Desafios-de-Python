@@ -1,0 +1,36 @@
+print('Calculadora em Phyton. Use +, -, * e / para fazer as operações.\nEscreva "sair" para terminar o programa.\n')
+
+while True:
+ try:
+  sair = input("Digite o primeiro número: ") # input pro primeiro numero e tbm pra fechar o programa caso escreva 'sair'
+  if sair == "sair":
+   break
+  n1 = int(sair) # transforma o primeiro número em inteiro se vc não sair
+  while True:
+   op = input("Digite a operação: ") # negocinho pra não deixar vc digitar algo que não seja uma operação matematica
+   if op in ["+", "-", "*", "/"]: # operações aceitas
+    break
+   else:
+    print("Digite uma operação. Use +, -, * ou /.\n") # print pra caso vc digite algo que não é uma operação
+  n2 = int(input("Digite o segundo número: ")) # input pro segundo numero
+
+  if op == "+":       # tabelinha pras operações
+    result = n1 + n2
+  elif op == "-":
+    result = n1 - n2
+  elif op == "*":
+    result = n1 * n2
+  elif op == "/":
+    if n2 == 0:     # pra previnir de alguém tentar dividir um número por zero (crasha o programa se dividir)
+     print(n1, op, n2, "= inválido\nError: não tem como dividir por 0 zé ruela\n") # print pra caso vc tente dividir por zero
+     continue
+     result = n1 / n2
+  else:
+    result = n1 / n2
+    continue
+
+  print(n1, op, n2, "=", result, "\n") # resultado da operação
+
+ except ValueError: # negocio pra não parar o programa caso vc digite uma letra na parte de número
+  print("Digite um número.\n")
+  continue
